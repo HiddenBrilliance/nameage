@@ -4,10 +4,6 @@ const initializeApp = () => {
     const submitButton = document.querySelector('#submit')
     submitButton.addEventListener('click', handleClickSubmit)
 }
-const getAge = async (name) => {
-    const response = await fetch(url + name);
-    return await response.json();
-}
 
 const handleClickSubmit = async () => {
     const nameInput = document.querySelector('#first-name')
@@ -15,10 +11,14 @@ const handleClickSubmit = async () => {
     displayAge(response.age)
 }
 
+const getAge = async (name) => {
+    const response = await fetch(url + name);
+    return await response.json();
+}
+
 const displayAge = (age) => {
     const container = document.getElementById('age-display')
     container.innerHTML = `<h1>${age}</h1>`
 }
-
 
 initializeApp()
